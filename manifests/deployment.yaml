@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staticweb
+  labels:
+    app: staticweb
+  namespace: namespace-workflow-1690866415248
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: staticweb
+  template:
+    metadata:
+      labels:
+        app: staticweb
+    spec:
+      containers:
+        - name: staticweb
+          image: acrworkflow1690866415248.azurecr.io/image-workflow-1690866415248:latest
+          ports:
+            - containerPort: 8080
